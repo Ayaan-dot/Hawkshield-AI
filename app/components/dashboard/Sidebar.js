@@ -242,7 +242,9 @@ export default function Sidebar({ onClose }) {
           <button
             onClick={() => {
               signOut();
-              onClose();
+              if (typeof onClose === 'function') {
+    onClose();
+  }
             }}
             className="flex items-center w-full px-3 py-2 text-sm text-gray-600 hover:text-red-600 hover:bg-red-50 rounded-lg"
           >

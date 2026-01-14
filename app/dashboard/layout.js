@@ -6,7 +6,7 @@ import { useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import Sidebar from '../components/dashboard/Sidebar';
 import TopNav from '../components/dashboard/TopNav';
-import Footer from '../components/Footer'; // Import your footer
+
 
 export default function DashboardLayout({ children }) {
   const { user, loading } = useAuth();
@@ -65,8 +65,6 @@ export default function DashboardLayout({ children }) {
           </div>
         </main>
         
-        {/* Footer - Now has proper spacing */}
-        <Footer />
       </div>
     </div>
   );

@@ -5,15 +5,19 @@ import { Shield, Menu, X, Zap } from 'lucide-react';
 import Link from 'next/link';
 import { useState, useEffect } from 'react';
 import { usePathname } from 'next/navigation';
+import { useAuth } from '@/context/AuthContext';
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const pathname = usePathname();
+  const { user } = useAuth();
 
   // Don't show this navbar on dashboard pages
-  if (pathname.startsWith('/dashboard')) {
+  if (pathname.startsWith('/dashboard') || 
+      (pathname.startsWith('/analyzer') && user)) {
     return null;
   }
+
 
   const navItems = [
     { label: 'Analyzer Hub', href: '/analyzer' },
